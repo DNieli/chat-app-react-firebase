@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App, .room-screen {
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.room {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+.room label {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.room input {
+  width: 200px;
+  height: 30px;
+  border: 2px solid #911bc4;
+  border-radius: 6px;
+  padding-left: 5px;
+  font-size: 20px;
+  text-align: center;
+  margin: 5px;
+}
+
+button {
+  width: 210px;
+  height: 40px;
+  border: 2px solid #911bc4;
+  border-radius: 6px;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin: 5px;
+  background-color: #911bc4;
   color: white;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
+.sign-out {
+  margin-top: 50px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+button:hover {
+  background-color: white;
+  color: #911bc4;
+  transition: 0.5s;
+}
+
+@media screen and (min-width: 1024px) {
+  .room label {
+    font-size: 30px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .room input {
+    font-size: 24px;
+    width: 240px;
+  }
+
+  button {
+    font-size: 24px;
+    width: 250px;
   }
 }

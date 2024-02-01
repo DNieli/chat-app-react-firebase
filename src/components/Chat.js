@@ -12,7 +12,7 @@ import { auth, db } from "../firebase-config";
 import "../styles/Chat.css";
 
 export const Chat = (props) => {
-  const { room } = props;
+  const { room, setRoom } = props;
   const [newMessage, setNewMessage] = useState("");
   const [messages, setMessages] = useState([]);
 
@@ -50,29 +50,40 @@ export const Chat = (props) => {
   };
 
   return (
-    <div className="chat-app">
-      <div className="header">
-        <h1>Welcome to: {room}</h1>
+    <>
+      <div className="chat-app">
+        <div className="header">
+          <h1>Welcome to: {room}</h1>
+        </div>
+        <div className="messages">
+          {messages.map((message) => (
+            <div className="message" key={message.id}>
+              <span className="user">{message.user} </span>
+              {message.text}
+            </div>
+          ))}
+        </div>
+        <form onSubmit={handleSubmit} className="new-message-form">
+          <input
+            className="new-message-input"
+            placeholder="Type your message here..."
+            onChange={(event) => setNewMessage(event.target.value)}
+            value={newMessage}
+          />
+          <button type="submit" className="send-button">
+            Send
+          </button>
+        </form>
       </div>
-      <div>
-        {messages.map((message) => (
-          <div className="message" key={message.id}>
-            <span className="user">{message.user} </span>
-            {message.text}
-          </div>
-        ))}
-      </div>
-      <form onSubmit={handleSubmit} className="new-message-form">
-        <input
-          className="new-message-input"
-          placeholder="Type your message here..."
-          onChange={(event) => setNewMessage(event.target.value)}
-          value={newMessage}
-        />
-        <button type="submit" className="send-button">
-          Send
+      <div className="back-btn">
+        <button
+          onClick={() => {
+            setRoom(null);
+          }}
+        >
+          Back
         </button>
-      </form>
-    </div>
+      </div>
+    </>
   );
 };

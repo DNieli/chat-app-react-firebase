@@ -1,0 +1,13 @@
+h2 {
+  font-size: 40px;
+}
+
+.auth {
+  text-align: center;
+}
+
+@media screen and (min-width: 1024px) {
+  h2 {
+    font-size: 48px;
+  }
+}

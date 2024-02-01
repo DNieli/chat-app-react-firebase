@@ -30,9 +30,10 @@ function App() {
   }
 
   return (
-    <>
+    <div className="room-screen">
+      <h2>Chat App</h2>
       {room ? (
-        <Chat room={room} />
+        <Chat room={room} setRoom={setRoom} />
       ) : (
         <div className="room">
           <label>Enter Room Name:</label>
@@ -46,7 +47,7 @@ function App() {
       <div className="sign-out">
         <button onClick={signUserOut}>Sign Out</button>
       </div>
-    </>
+    </div>
   );
 }
 
